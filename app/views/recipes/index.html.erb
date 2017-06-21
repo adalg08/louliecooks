@@ -1,6 +1,8 @@
 <div class="container">
   <% @recipes.each do |recipe| %>
     <h3><%= link_to recipe.name, recipe_path(recipe) %></h3>
-    <p><%= recipe.ingredients  %></p>
+    <% if recipe.photo? %>
+      <%= cl_image_tag recipe.photo.path, width: 200, height: 300, crop: :fill %>
+    <% end %>
   <% end %>
 </div>

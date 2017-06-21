@@ -1,5 +1,5 @@
 <%= simple_form_for @recipe do |f| %>
   <%= f.input :name %>
-  <%= f.input :description %>
+  <%= f.input :photo, as: :attachinary %>
   <%= f.button :submit %>
 <% end %>
