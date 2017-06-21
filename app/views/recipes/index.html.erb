@@ -1,6 +1,6 @@
 <div class="container">
   <% @recipes.each do |recipe| %>
-    <h3><%= link_to recipe.name, recipe_path(recipe) %></h3>
+    <h3><%= link_to recipe.name, recipe_path(recipe) %> | <%= link_to "editer", edit_recipe_path(recipe) %> | <%= link_to "Eliminer", recipe_path(recipe), method: :delete,  data: { confirm: "T'es sûr-e de voulouir eliminer la recette ?" }  %></h3>
     <% if recipe.photo? %>
       <%= cl_image_tag recipe.photo.path, width: 200, height: 300, crop: :fill %>
     <% end %>

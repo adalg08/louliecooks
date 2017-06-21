@@ -1,11 +1,11 @@
 class RecipesController < ApplicationController
+  before_action :set_recipe, only: [:show, :edit, :update, :destroy]
 
   def index
     @recipes = current_user.recipes.all
   end
 
   def show
-    @recipe = Recipe.find(params[:id])
   end
 
   def new
@@ -23,7 +23,28 @@ class RecipesController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    if @recipe.update(recipe_params)
+      redirect_to @recipe
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @recipe.destroy
+    flash[:notice] = "La recette a été eliminée"
+    redirect_to recipes_path
+  end
+
   private
+
+  def set_recipe
+    @recipe = Recipe.find(params[:id])
+  end
 
   def recipe_params
     params.require(:recipe).permit(:name, :description, :photo)
