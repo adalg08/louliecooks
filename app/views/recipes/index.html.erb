@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container text-center">
   <% @recipes.each do |recipe| %>
     <h3><%= link_to recipe.name, recipe_path(recipe) %> | <%= link_to "editer", edit_recipe_path(recipe) %> | <%= link_to "Eliminer", recipe_path(recipe), method: :delete,  data: { confirm: "T'es sûr-e de voulouir eliminer la recette ?" }  %></h3>
     <% if recipe.photo? %>

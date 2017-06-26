@@ -3,6 +3,6 @@ Rails.application.routes.draw do
   root to: "recipes#index"
   mount Attachinary::Engine => "/attachinary"
   resources :recipes do
-    resources :ingredients
+    resources :compositions
   end
 end
