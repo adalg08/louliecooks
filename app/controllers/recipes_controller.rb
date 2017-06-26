@@ -6,6 +6,7 @@ class RecipesController < ApplicationController
   end
 
   def show
+    @ingredient = Ingredient.new
   end
 
   def new
