@@ -3,21 +3,22 @@
   <h2><%= @recipe.name %></h2>
 
   <% if @recipe.photo? %>
-   <p><%= cl_image_tag @recipe.photo.path, width: 200, height: 300, crop: :fill %></p>
+   <p><%= cl_image_tag @recipe.photo.path, width: 300, height: 300, crop: :fill %></p>
   <% end %>
 
-  <h3>Ingredients</h3>
-  <ul>
-    <% @recipe.ingredients.each do |ingredient| %>
-      <li><%= ingredient.name.capitalize %></li>
+  <div class="ingredients">
+    <h3>Ingredients</h3>
+    <ul>
+      <% @recipe.ingredients.each do |ingredient| %>
+        <li><%= ingredient.name.capitalize %></li>
+      <% end %>
+    </ul>
+    <%= simple_form_for [@recipe, @composition] do |f| %>
+      <%= f.input :ingredient, label: false %>
+      <%= f.button :submit, 'Ajouter ingredient' %>
     <% end %>
-  </ul>
-  <%= simple_form_for [@recipe, @composition] do |f| %>
-    <%= f.input :ingredient, label: false %>
-    <%= f.button :submit, 'Ajouter ingredient' %>
-  <% end %>
 
-  <%= @recipe.description %>
-
+    <%= @recipe.description %>
+  </div>
 </div>
 
