@@ -17,6 +17,12 @@ class CompositionsController < ApplicationController
     end
   end
 
+  def destroy
+    @composition = Composition.find(params[:id])
+    @composition.destroy
+    redirect_to recipe_path(@composition.recipe)
+  end
+
   private
 
   def composition_params

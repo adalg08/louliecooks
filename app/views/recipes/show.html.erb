@@ -9,8 +9,8 @@
   <div class="ingredients">
     <h3>Ingredients</h3>
     <ul>
-      <% @recipe.ingredients.each do |ingredient| %>
-        <li><%= ingredient.name.capitalize %></li>
+      <% @recipe.compositions.each do |composition| %>
+        <li><%= composition.ingredient.name.capitalize %> <%= link_to "🚮", composition_path(composition), method: :delete,  data: { confirm: "T'es sûr-e de voulouir eliminer cet ingredient ?" }  %></li>
       <% end %>
     </ul>
     <%= simple_form_for [@recipe, @composition] do |f| %>
