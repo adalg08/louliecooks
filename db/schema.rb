@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170626121504) do
+ActiveRecord::Schema.define(version: 20170629134418) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +30,12 @@ ActiveRecord::Schema.define(version: 20170626121504) do
     t.index ["attachinariable_type", "attachinariable_id", "scope"], name: "by_scoped_parent", using: :btree
   end
 
+  create_table "categories", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "compositions", force: :cascade do |t|
     t.integer  "recipe_id"
     t.integer  "ingredient_id"
@@ -37,6 +43,15 @@ ActiveRecord::Schema.define(version: 20170626121504) do
     t.datetime "updated_at",    null: false
     t.index ["ingredient_id"], name: "index_compositions_on_ingredient_id", using: :btree
     t.index ["recipe_id"], name: "index_compositions_on_recipe_id", using: :btree
+  end
+
+  create_table "groups", force: :cascade do |t|
+    t.integer  "recipe_id"
+    t.integer  "category_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["category_id"], name: "index_groups_on_category_id", using: :btree
+    t.index ["recipe_id"], name: "index_groups_on_recipe_id", using: :btree
   end
 
   create_table "ingredients", force: :cascade do |t|
@@ -73,5 +88,7 @@ ActiveRecord::Schema.define(version: 20170626121504) do
 
   add_foreign_key "compositions", "ingredients"
   add_foreign_key "compositions", "recipes"
+  add_foreign_key "groups", "categories"
+  add_foreign_key "groups", "recipes"
   add_foreign_key "recipes", "users"
 end
