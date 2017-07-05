@@ -2,7 +2,7 @@ class RecipesController < ApplicationController
   before_action :set_recipe, only: [:show, :edit, :update, :destroy]
 
   def index
-    @recipes = current_user.recipes.all
+    @recipes = current_user.recipes.all.order(id: :desc)
   end
 
   def show
