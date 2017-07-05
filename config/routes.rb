@@ -4,5 +4,6 @@ Rails.application.routes.draw do
   mount Attachinary::Engine => "/attachinary"
   resources :recipes do
     resources :compositions, shallow: true
+    resources :groups, shallow: true
   end
 end

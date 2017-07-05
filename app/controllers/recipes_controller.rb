@@ -7,6 +7,7 @@ class RecipesController < ApplicationController
 
   def show
     @composition = Composition.new
+    @group = Group.new
   end
 
   def new
