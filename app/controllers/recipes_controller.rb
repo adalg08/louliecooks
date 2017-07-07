@@ -2,7 +2,13 @@ class RecipesController < ApplicationController
   before_action :set_recipe, only: [:show, :edit, :update, :destroy]
 
   def index
-    @recipes = current_user.recipes.all.order(id: :desc)
+      @recipes = Recipe.all.order(id: :desc)
+  end
+
+  def search_results
+     @recipes = Recipe.joins(:ingredients).where(ingredients:
+      { name:  search_params[:ingredient] }
+    ).order(id: :desc)
   end
 
   def show
@@ -46,6 +52,10 @@ class RecipesController < ApplicationController
 
   def set_recipe
     @recipe = Recipe.find(params[:id])
+  end
+
+  def search_params
+    params.require(:index).permit(:ingredient)
   end
 
   def recipe_params
