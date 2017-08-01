@@ -4,7 +4,7 @@
     <%= f.input :ingredient, label: false, placeholder: 'Il y quoi a dans le frigo ?' %>
     <%= f.submit "Go", class: 'btn btn-primary'%>
   <% end %>
-
+  <h1>Mes recettes</h1>
   <% @recipes.each do |recipe| %>
     <h3><%= link_to recipe.name, recipe_path(recipe) %> </h3> <p> <%= link_to "🔃", edit_recipe_path(recipe) %>  <%= link_to "🚮", recipe_path(recipe), method: :delete,  data: { confirm: "T'es sûr-e de voulouir eliminer la recette ?" }  %></p>
     <% if recipe.photo? %>
