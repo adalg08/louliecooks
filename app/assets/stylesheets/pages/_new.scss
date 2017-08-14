@@ -1,0 +1,19 @@
+.attachinary_container ul {
+  list-style: none;
+}
+.recipe_photo,
+  .recipe_photo input {
+    height: 47px;
+    width: 263px;
+    margin: 20px auto;
+   }
+.recipe_photo {
+  background: transparent url(http://i.stack.imgur.com/BT5AB.png) center center no-repeat;
+}
+.recipe_photo input, .recipe_photo label {
+  opacity: 0;
+}
+#recipe_photo {
+  display: flex;
+  justify-content: center;
+}
