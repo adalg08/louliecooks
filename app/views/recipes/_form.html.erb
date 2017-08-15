@@ -1,7 +1,7 @@
 <div class="container text-center">
   <%= simple_form_for @recipe do |f| %>
     <%= f.input :name, label: "Nom de la recette" %>
-    <%= f.input :photo, as: :attachinary %>
+    <%= f.input :photo, as: :attachinary, label: "Ajouter une photo" %>
     <%= f.button :submit, "Créer", class: "btn btn-primary" %>
   <% end %>
 </div>

@@ -5,14 +5,23 @@
   .recipe_photo input {
     height: 47px;
     width: 263px;
-    margin: 20px auto;
+    margin: 60px auto;
    }
 .recipe_photo {
-  background: transparent url(http://i.stack.imgur.com/BT5AB.png) center center no-repeat;
+  background: transparent url("") center center no-repeat;
 }
-.recipe_photo input, .recipe_photo label {
+.recipe_photo input {
   opacity: 0;
 }
+
+.recipe_photo label {
+  color: $brand-primary;
+  border-radius: 5px;
+  border: 1px solid $brand-primary;
+  padding: 20px;
+
+}
+
 #recipe_photo {
   display: flex;
   justify-content: center;
