@@ -7,7 +7,7 @@ class RecipesController < ApplicationController
 
   def search_results
      @recipes = Recipe.joins(:ingredients).where(ingredients:
-      { name:  search_params[:ingredient] }
+      { name:  search_params[:ingredient].downcase }
     ).order(id: :desc)
   end
 
