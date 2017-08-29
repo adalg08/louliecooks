@@ -5,10 +5,12 @@
     <%= f.submit "Go", class: 'btn btn-primary'%>
   <% end %>
   <h1>Mes recettes</h1>
-  <% @recipes.each do |recipe| %>
+    <% @recipes.each do |recipe| %>
+    <div class="recipe-card">
     <h3><%= link_to recipe.name, recipe_path(recipe) %> </h3> <p> <%= link_to "🔃", edit_recipe_path(recipe) %>  <%= link_to "🚮", recipe_path(recipe), method: :delete,  data: { confirm: "T'es sûr-e de voulouir eliminer la recette ?" }  %></p>
     <% if recipe.photo? %>
       <%= cl_image_tag recipe.photo.path, width: 300, height: 300, crop: :fill %>
     <% end %>
+    </div>
   <% end %>
 </div>
