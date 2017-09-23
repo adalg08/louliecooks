@@ -1,5 +1,5 @@
-<div class="container text-center">
-
+<div class="container text-center padded-s">
+  <%= image_tag "fridge.jpg", height: 100 %>
   <%= simple_form_for :index, html: {class: 'form-inline padded-s'},
       url: results_path, method: :get do |f| %>
     <%= f.input :ingredient, label: false, placeholder: 'Il y quoi a dans le frigo ?' %>
