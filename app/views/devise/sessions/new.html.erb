@@ -1,15 +1,24 @@
-<h2><%= t(".sign_in") %></h2>
+<div class="container padded-s">
+  <div class="row">
+    <div class="col-sm-6 text-center">
+      <h3><%= t(".sign_in") %></h3>
+      <%= image_tag "cake.svg", height: 100  %>
+     <br><p>Comment ça va chef ?</p>
+    </div>
+    <div class="col-sm-6">
+      <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <div class="form-inputs">
+          <%= f.input :email, required: false, autofocus: true %>
+          <%= f.input :password, required: false %>
+          <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+        </div>
 
-<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="form-inputs">
-    <%= f.input :email, required: false, autofocus: true %>
-    <%= f.input :password, required: false %>
-    <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+        <div class="form-actions">
+          <%= f.button :submit, t(".sign_in") %>
+        </div>
+      <% end %>
+
+      <%= render "devise/shared/links" %>
+    </div>
   </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, t(".sign_in") %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>
