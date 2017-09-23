@@ -1,10 +1,12 @@
-<div class="container text-center padded">
+<div class="container text-center">
+  <h3><i class="fa fa-fire" aria-hidden="true"></i> Mes recettes</h3>
+
   <%= simple_form_for :index, html: {class: 'form-inline'},
       url: results_path, method: :get do |f| %>
     <%= f.input :ingredient, label: false, placeholder: 'Il y quoi a dans le frigo ?' %>
     <%= f.submit "Go", class: 'btn btn-primary'%>
   <% end %>
-  <h1>Mes recettes</h1>
+
     <% @recipes.each do |recipe| %>
     <div class="recipe-card">
     <h3><%= link_to recipe.name, recipe_path(recipe) %> </h3> <p> <%= link_to "🔃", edit_recipe_path(recipe) %>  <%= link_to "🚮", recipe_path(recipe), method: :delete,  data: { confirm: "T'es sûr-e de voulouir eliminer la recette ?" }  %></p>
