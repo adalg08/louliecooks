@@ -1,21 +1,19 @@
-<div class="container text-center padded">
+<div class="container padded-m">
 
-  <h2><%= @recipe.name %></h2>
-
-  <% if @recipe.photo? %>
-   <p><%= cl_image_tag @recipe.photo.path, width: 300, height: 300, crop: :fill %></p>
-  <% end %>
+<div class="recipe-card"  style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path @recipe.photo.path %>')">
+  <h3><%= @recipe.name %></h3>
+</div>
 
   <div class="ingredients">
-    <h3>Ingredients</h3>
+    <h3 class="text-center">Ingredients</h3>
     <ul>
       <% @recipe.compositions.each do |composition| %>
-        <li><%= composition.ingredient.name.capitalize %> <%= link_to "🚮", composition_path(composition), method: :delete,  data: { confirm: "T'es sûr-e de voulouir eliminer cet ingredient ?" }  %></li>
+        <li>- <%= composition.ingredient.name.capitalize %> <%= link_to "x", composition_path(composition), method: :delete,  data: { confirm: "T'es sûr-e de voulouir eliminer cet ingredient ?" }  %></li>
       <% end %>
     </ul>
     <%= simple_form_for [@recipe, @composition] do |f| %>
       <%= f.input :ingredient, label: false %>
-      <%= f.button :submit, 'Ajouter ingredient' %>
+      <%= f.button :submit, 'Ajouter ingredient', class: "text-center btn-primary" %>
     <% end %>
   </div>
 
@@ -24,16 +22,16 @@
   </div>
 
   <div class="categories">
-    <h3>Parfaite pour quelle ocassion ?</h3>
+    <h3 class="text-center">Parfaite pour quelle ocassion ?</h3>
     <ul>
       <% @recipe.groups.each do |group| %>
-        <li><%= group.category.name.capitalize %> <%= link_to "🚮", group_path(group), method: :delete,  data: { confirm: "T'es sûr-e de voulouir eliminer cet ocassion ?" }  %></li>
+        <li><%= group.category.name.capitalize %> <%= link_to "x", group_path(group), method: :delete,  data: { confirm: "T'es sûr-e de voulouir eliminer cet ocassion ?" }  %></li>
       <% end %>
     </ul>
 
     <%= simple_form_for [@recipe, @group] do |f| %>
       <%= f.association :category, label: false %>
-      <%= f.button :submit, 'Ajouter ocassions' %>
+      <%= f.button :submit, 'Ajouter ocassions', class: "btn-primary" %>
     <% end %>
 
   </div>
