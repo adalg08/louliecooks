@@ -1,0 +1,32 @@
+.recipe-card {
+  height: 600px;
+  background-size: cover;
+  background-position: center center;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  position: relative;
+  &:hover {
+    opacity: 0.9;
+  }
+  h3 {
+    position: absolute;
+    left: 30px;
+    bottom: 40px;
+    font-size: 30px;
+    color: white;
+    font-family: "Open sans";
+  }
+}
+.card-link {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  z-index: 2;
+  background: black;
+  opacity: 0;
+}
+.card-link:hover {
+  opacity: 0.1;
+}
