@@ -1,7 +1,17 @@
-<div class="navbar-wagon">
-  <!-- Logo -->
-  <%= link_to root_path, class: "navbar-wagon-brand text-center" do %>
-    <%= image_tag "logo-white.png" %> louliecooks
-  <% end %>
+<div class="container">
+  <div class="navbar-wagon">
+    <!-- Logo -->
+    <div class="logo">
+      <%= link_to root_path, class: "navbar-wagon-brand text-center" do %>
+        <%= image_tag "logo-primary.png" %> louliecooks
+      <% end %>
+    </div>
+    <div class="log-out">
+      <% if user_signed_in? %>
+          <%= link_to destroy_user_session_path, method: :delete do %>
+             <i class="fa fa-sign-out" aria-hidden="true"></i>
+          <% end %>
+      <% end %>
+    </div>
+  </div>
 </div>
-
