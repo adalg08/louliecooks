@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-sm-6 text-center">
       <h3><%= t(".sign_in") %></h3>
-      <%= image_tag "cake.svg", height: 100  %>
+      <%= image_tag "blender.svg", height: 100  %>
      <br><p>Comment ça va chef ?</p>
     </div>
     <div class="col-sm-6">
@@ -14,7 +14,7 @@
         </div>
 
         <div class="form-actions">
-          <%= f.button :submit, t(".sign_in") %>
+          <%= f.button :submit, t(".sign_in"), class: "btn-primary" %>
         </div>
       <% end %>
 
