@@ -32,7 +32,7 @@
     </ul>
 
     <%= simple_form_for [@recipe, @group] do |f| %>
-      <%= f.association :category, label: false %>
+      <%= f.association :category, label: false, selected: 2 %>
       <%= f.button :submit, 'Ajouter ocassions', class: "btn-primary" %>
     <% end %>
 
