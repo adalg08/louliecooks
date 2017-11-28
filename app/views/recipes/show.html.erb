@@ -9,7 +9,7 @@
     <ul>
       <% @recipe.compositions.each do |composition| %>
         <% if ! composition.ingredient.nil? %>
-          <li>- <%= composition.ingredient.name.capitalize %> <%= link_to "x", composition_path(composition), method: :delete,  data: { confirm: "T'es sûr-e de voulouir eliminer cet ingredient ?" }  %></li>
+          <li>- <%= composition.ingredient.name.capitalize %> <%= link_to "x", composition_path(composition), method: :delete,  data: { confirm: "Es tu sûr-e de vouloir supprimer cet ingrédient ?" }  %></li>
         <% end %>
       <% end %>
     </ul>
@@ -27,7 +27,7 @@
     <h3 class="text-center">Parfaite pour quelle ocassion ?</h3>
     <ul>
       <% @recipe.groups.each do |group| %>
-        <li><%= group.category.name.capitalize %> <%= link_to "x", group_path(group), method: :delete,  data: { confirm: "T'es sûr-e de voulouir eliminer cet ocassion ?" }  %></li>
+        <li><%= group.category.name.capitalize %> <%= link_to "x", group_path(group), method: :delete,  data: { confirm: "Es tu sûr-e de vouloir supprimer cette ocassion ?" }  %></li>
       <% end %>
     </ul>
 
