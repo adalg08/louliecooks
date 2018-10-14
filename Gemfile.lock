@@ -84,6 +84,10 @@ GEM
     devise-i18n (1.2.0)
     domain_name (0.5.20170404)
       unf (>= 0.0.5, < 1.0.0)
+    dotenv (2.5.0)
+    dotenv-rails (2.5.0)
+      dotenv (= 2.5.0)
+      railties (>= 3.2, < 6.0)
     erubis (2.7.0)
     execjs (2.7.0)
     ffi (1.9.18)
@@ -227,6 +231,7 @@ DEPENDENCIES
   coffee-rails
   devise
   devise-i18n
+  dotenv-rails
   figaro
   font-awesome-sass
   jbuilder (~> 2.0)
@@ -245,8 +250,5 @@ DEPENDENCIES
   spring-watcher-listen (~> 2.0.0)
   uglifier
 
-RUBY VERSION
-   ruby 2.3.5p376
-
 BUNDLED WITH
-   1.15.4
+   1.16.5

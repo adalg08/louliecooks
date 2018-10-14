@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.3.5'
+
 
 gem 'devise'
 gem 'devise-i18n'
@@ -13,6 +13,7 @@ gem 'pg'
 gem 'puma'
 gem 'rails', '5.0.3'
 gem 'redis'
+gem 'dotenv-rails', groups: [:development, :test]
 
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass'
