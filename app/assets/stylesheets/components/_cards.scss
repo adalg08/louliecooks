@@ -7,10 +7,19 @@
   position: relative;
   h3 {
     position: absolute;
-    left: 20px;
+    left: 10px;
     bottom: 10px;
     font-size: 30px;
     color: white;
+    font-family: "Open sans";
+  }
+  h4 {
+    position: absolute;
+    left: 10px;
+    bottom: 10px;
+    font-size: 20px;
+    color: white;
+    font-weight: lighter;
     font-family: "Open sans";
   }
 }

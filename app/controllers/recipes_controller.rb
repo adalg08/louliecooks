@@ -11,6 +11,10 @@ class RecipesController < ApplicationController
     ).order(id: :desc)
   end
 
+  def search_page
+     @recipes = current_user.recipes.all.order(id: :desc)
+  end
+
   def show
     @composition = Composition.new
     @group = Group.new
